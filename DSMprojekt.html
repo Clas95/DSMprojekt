@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <link rel="stylesheet" href="DSMprojekt.css" type="text/css">
+    <script src="jquery.js"></script>
+    <meta charset="UTF-8">
+    <title>DSM Spiel</title>
+</head>
+<body>
+
+<section id="startDiv">
+    <img src="deern.png" id="deernImg">
+    <img src="images/seuteDeernSchrift.png" id="deernSchrift">
+    <div id="initiateDiv"> <button id="finalStartBtn" onclick="initGame()">Spiel Starten</button></div>
+
+</section>
+    <section id="weltkarteSection">
+        <img id="karteBGimg" src="karteimg.png" >
+        <canvas id="karteCan"></canvas>
+    </section>
+
+<section id="introSection">
+    <div id="untertitelDiv">
+        <p id="untertitelText">
+            Untertitel
+        </p>
+
+    </div>
+
+    <video src="video1.mp4" id="introVideo"></video>
+</section>
+
+    <section id="kochSpielSection" hidden="true">
+        <img id="kochSpielBgImg" src="images/kochImg2.png">
+        <img id="rezeptImg" src="images/rezeptListe.png">
+        <div id="zutat0" class="zutatenDiv" onclick="pressZutat(0)"><p id="zutat0Text" class="zutatenText">x5</p></div>
+        <div id="zutat1" class="zutatenDiv" onclick="pressZutat(1)"><p id="zutat1Text" class="zutatenText">x5</p></div>
+        <div id="zutat2" class="zutatenDiv" onclick="pressZutat(2)"><p id="zutat2Text" class="zutatenText">x5</p></div>
+        <div id="zutat3" class="zutatenDiv" onclick="pressZutat(3)"><p id="zutat3Text" class="zutatenText">x5</p></div>
+        <div id="zutat4" class="zutatenDiv" onclick="pressZutat(4)"><p id="zutat4Text" class="zutatenText">x5</p></div>
+        <div id="zutat5" class="zutatenDiv" onclick="pressZutat(5)"><p id="zutat5Text" class="zutatenText">x5</p></div>
+        <div id="zutat6" class="zutatenDiv" onclick="pressZutat(6)"><p id="zutat6Text" class="zutatenText">x5</p></div>
+        <div id="zutat7" class="zutatenDiv" onclick="pressZutat(7)"><p id="zutat7Text" class="zutatenText">x5</p></div>
+        <div id="zutat8" class="zutatenDiv" onclick="pressZutat(8)"><p id="zutat8Text" class="zutatenText">x5</p></div>
+        <div id="zutat9" class="zutatenDiv" onclick="pressZutat(9)"><p id="zutat9Text" class="zutatenText">x5</p></div>
+
+        <div id="slot1" class="kochSlot" onclick="removeZutat(1)"></div>
+        <div id="slot2" class="kochSlot" onclick="removeZutat(2)"></div>
+        <div id="slot3" class="kochSlot" onclick="removeZutat(3)"></div>
+        <div id="slot4" class="kochSlot" onclick="removeZutat(4)"></div>
+
+        <div id="balkenWoche1Div" class="balkenWoche"><p class="balkenText">Woche 1</p></div>
+        <div id="balkenWoche2Div" class="balkenWoche"><p class="balkenText">Woche 2</p></div>
+        <div id="balkenWoche3Div" class="balkenWoche"><p class="balkenText">Woche 3</p></div>
+        <div id="balkenWoche4Div" class="balkenWoche"><p class="balkenText">Woche 4</p></div>
+
+        <div id="wocheNadelDiv"><div id="wocheNadelKopf"></div> </div>
+        <div id="haltbkWarnerDiv">Gruen ist nicht lang haltbar!</div>
+    </section>
+
+
+
+
+    <div id="erfahrungDiv">
+    </div>
+
+    <div id="navigationdDiv">
+    </div>
+    <div id="volumeBar">
+        <button id="btnVolOpen"><img src="images/speakersymbol.svg" id="openVolImg"></button>
+    <input hidden="true" id="volumeRange" type="range" min="0" max="100" value="50" step="1" />
+
+</div>
+<div id="languageBar">
+    <button id="btnLangOpen"><img src="images/languagesymbol.svg" id="openLangImg"></button>
+    <button class="buttonLang" id="btnNoLang" disabled hidden></button>
+    <button class="buttonLang" id="btnGer" hidden></button>
+    <button class="buttonLang" id="btnEng" hidden></button>
+</div>
+</div>
+
+<div id="divLvlAuswahl">
+    <button id="buttonLvlAuswahl"><p id="textLvlAuswahl">Level</p></button>
+</div>
+<div id="divSkip">
+    <button  id="buttonSkip"><p id="textSkip">Start</p></button>
+</div>
+
+
+
+<div id="kreisUeber">
+<div id="kreisDiv">
+    <div id="lvlAnzeige"><p id="lvlAnzeigeText">1</p></div>
+    <img src="circle.png" id="navigationCircle">
+
+</div>
+    </div>
+
+
+
+
+    <div id="navButtonDiv">
+<button id="buttonUp" class="buttonCircle">   </button>
+<button id="buttonLeft" class="buttonCircle">   </button>
+<button id="buttonShip" class="buttonCircle">   </button>
+<button id="buttonRight" class="buttonCircle">   </button>
+<button id="buttonDown" class="buttonCircle">   </button>
+    </div>
+
+    <p id="epText" >
+        hallo
+    </p>
+
+    <div id="zustimmungSmileyDiv"></div>
+    <div id="questFortsDiv">
+        <div id="questFortsBalken"> </div>
+    </div>
+    <div id="questTextDiv">
+    <p id="questFortsText"> 0/0 </p>
+    </div>
+
+
+
+<img src="images/shipImg.png" id="imgShip" hidden="true">
+<img src="images/shadow.png" id="imgShadow" hidden="true">
+<img src="images/wood2.png" id="holzBild" hidden="true">
+<img src="images/ziel.png" id="destBild" hidden="true">
+
+
+<div id="testerDiv">
+    <p id="tester1">tester1</p>
+    <p id="tester2">tester2</p>
+    <p id="tester3">tester3</p>
+    <button id="tester4" onclick="adminSkip()">Skip Level</button>
+</div>
+    <!--
+    <div id="blockerSetterDiv">
+        <button class="blockerButton" id="setBlockerFortlaufend" onclick="nextBlocker()">Weiter</button>
+        <button class="blockerButton" id="setBlockerNew" onclick="nextBlockerSegment()">Neu</button>
+        <button class="blockerButton" id="blockerX1Ausgabe" onclick="wertAusgebenX1()">X1</button>
+        <button class="blockerButton" id="blockerY1Ausgabe" onclick="wertAusgebenY1()">Y1</button>
+        <button class="blockerButton" id="blockerX2Ausgabe" onclick="wertAusgebenX2()">X2</button>
+        <button class="blockerButton" id="blockerY2Ausgabe" onclick="wertAusgebenY2()">Y2</button>
+    </div>
+    -->
+    <div id="btnNavOpen">
+
+    </div>
+
+    <script type="text/javascript" src="DSMprojekt.js"></script>
+</body>
+</html>
